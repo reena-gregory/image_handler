@@ -1,0 +1,91 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Image Upload Service",
+      "version": "1.0"
+    },
+    "paths": {
+      "/upload": {
+        "post": {
+          "summary": "Upload an image",
+          "operationId": "uploadImage",
+          "x-amazon-apigateway-integration": {
+            "type": "aws_proxy",
+            "httpMethod": "POST",
+            "uri": "<uri-to-be-updated>"
+          }
+        }
+      },
+      "/images": {
+        "get": {
+          "summary": "List images",
+          "operationId": "listImages",
+          "parameters": [
+            {
+              "name": "filter_key",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "filter_value",
+              "in": "query",
+              "required": false,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "type": "aws_proxy",
+            "httpMethod": "GET",
+            "uri": "<uri-to-be-updated>"
+          }
+        }
+      },
+      "/image/{image_id}": {
+        "get": {
+          "summary": "View image",
+          "operationId": "viewImage",
+          "parameters": [
+            {
+              "name": "image_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "type": "aws_proxy",
+            "httpMethod": "GET",
+            "uri": "<uri-to-be-updated>"
+          }
+        },
+        "delete": {
+          "summary": "Delete image",
+          "operationId": "deleteImage",
+          "parameters": [
+            {
+              "name": "image_id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "x-amazon-apigateway-integration": {
+            "type": "aws_proxy",
+            "httpMethod": "DELETE",
+            "uri": "<uri-to-be-updated>",
+            "payloadFormatVersion": "2.0"
+          }
+        }
+      }
+    }
+  }
+  
