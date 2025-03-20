@@ -4,7 +4,9 @@ from app.config import AWS_ENDPOINT_URL, AWS_REGION, \
 
 
 dynamodb = boto3.resource(
-    DYNAMODB_DB_NAME, endpoint_url=AWS_ENDPOINT_URL, region_name=AWS_REGION)
+    DYNAMODB_DB_NAME, endpoint_url=AWS_ENDPOINT_URL, region_name=AWS_REGION,
+    aws_access_key_id=AWS_ACCESS_KEY,
+    aws_secret_access_key=AWS_SECRET_KEY)
 table = dynamodb.Table(DYNAMODB_TABLE_NAME)
 
 
