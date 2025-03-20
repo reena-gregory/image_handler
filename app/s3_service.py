@@ -7,7 +7,7 @@ from app.constants import IMAGE_FOLDER
 s3_client = boto3.client(
     "s3", endpoint_url=AWS_ENDPOINT_URL, region_name=AWS_REGION,
     aws_access_key_id=AWS_ACCESS_KEY,
-    aws_secret_access_key=AWS_SECRET_KEY,)
+    aws_secret_access_key=AWS_SECRET_KEY)
 
 def upload_image_to_s3(image_id, image_file_name, image_file_content):
     """
