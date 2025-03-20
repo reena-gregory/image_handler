@@ -1,9 +1,13 @@
 import boto3
 
-from app.config import AWS_ENDPOINT_URL, AWS_REGION, S3_BUCKET_NAME
+from app.config import AWS_ENDPOINT_URL, AWS_REGION, S3_BUCKET_NAME, \
+    AWS_ACCESS_KEY, AWS_SECRET_KEY
 from app.constants import IMAGE_FOLDER
 
-s3_client = boto3.client("s3", endpoint_url=AWS_ENDPOINT_URL, region_name=AWS_REGION)
+s3_client = boto3.client(
+    "s3", endpoint_url=AWS_ENDPOINT_URL, region_name=AWS_REGION,
+    aws_access_key_id=AWS_ACCESS_KEY,
+    aws_secret_access_key=AWS_SECRET_KEY,)
 
 def upload_image_to_s3(image_id, image_file_name, image_file_content):
     """
